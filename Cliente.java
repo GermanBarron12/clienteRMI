@@ -1,4 +1,4 @@
-package com.mycompany.calculadora.rmi;  // MISMO package que el servidor
+package com.mycompany.calculadora.rmi;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -19,15 +19,15 @@ public class Cliente {
                 serverIP = "localhost";
             }
             
-            System.out.println("\n⟳ Conectando al servidor " + serverIP + "...");
+            System.out.println("\nConectando al servidor " + serverIP + "...");
             Registry registry = LocateRegistry.getRegistry(serverIP, 1099);
             Calculadora calculator = (Calculadora) registry.lookup("CalculatorService");
             
             String message = calculator.getMessage();
             System.out.println(" " + message);
-            System.out.println("\n═══════════════════════════════════════════");
+            System.out.println("\n------------------------------------------");
             System.out.println("    CALCULADORA REMOTA CONECTADA");
-            System.out.println("═══════════════════════════════════════════\n");
+            System.out.println("--------------------------------------------\n");
             
             boolean running = true;
             while (running) {
@@ -44,7 +44,7 @@ public class Cliente {
                 if (option == 5) {
                     running = false;
                     System.out.println("\nDesconectando...");
-                    System.out.println("¡Hasta luego!\n");
+                    System.out.println("Hasta luego!\n");
                     break;
                 }
                 
@@ -87,7 +87,7 @@ public class Cliente {
                     System.out.println("────────────────────────────────\n");
                     
                 } catch (Exception e) {
-                    System.err.println("\nError: ");
+                    
                 }
             }
             
